@@ -1,3 +1,6 @@
 img {
     height: 33vh;
 }
+input[type="number"] {
+    width:50px;
+ }

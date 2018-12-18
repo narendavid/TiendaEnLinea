@@ -17,4 +17,17 @@ form label {
 
 .panel {
     max-width: 500px;
+    margin: auto;
+}
+
+.error{
+    box-sizing: content-box;
+    border: 5px solid #CB4335;
+    background-color: #F1948A ;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.form-group{
+    padding-bottom: 3vh;
 }

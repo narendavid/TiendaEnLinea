@@ -6,8 +6,8 @@
                 <h5 class="card-title">{{ producto.nombre }}</h5>
                 <p class="card-text"><strong>Precio:</strong> {{ producto.precio | currency}} </p>
                 <p class="card-text"><strong>Unidades disponibles:</strong> {{ producto.unidades }} </p>
-                <a href="#" class="btn btn-primary">Ver más</a>
-                <a href="#" class="btn btn-primary">Añadir</a>
+                <button type="button" class="btn btn-warning" [routerLink]="['producto']">Ver más</button>
+                <button type="button" class="btn btn-success">Añadir</button>
                 <input type="number" min="0" [max]="producto.unidades">
             </div>
         </div>

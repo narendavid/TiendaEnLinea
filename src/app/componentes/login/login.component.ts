@@ -9,13 +9,19 @@ import { UsuariosService } from '../../servicios/usuarios.service';
 })
 export class LoginComponent implements OnInit {
 
-  email: string;
-  pass: string;
+  usuario = {
+    email: '',
+    pass: ''
+  }
 
-  constructor(private router: Router, private usuario: UsuariosService) {
-    if (this.usuario.isLogged){
-      this.router.navigate(['main']) 
-    }else{
+  error: boolean;
+
+  constructor(private router: Router, private usuarioService: UsuariosService) {
+    console.log(this.usuarioService.isLogged);
+    
+    if (this.usuarioService.isLogged) {
+      this.router.navigate(['main']);
+    } else {
       console.log('debe iniciar sesion');
     }
   }
@@ -24,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginGoogle(): void {
-    this.usuario.loginGoogle().then((res) => {
+    this.usuarioService.loginGoogle().then((res) => {
       console.log('Respuesta', res);
       this.loginRedirect()
     }).catch(err => console.log('error: ', err));
@@ -32,13 +38,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(email, pass): void {
-    this.usuario.loginEmailPass(email, pass).then((res) => {
+    this.usuarioService.loginEmailPass(email, pass).then((res) => {
       console.log('Respuesta', res);
+      this.usuarioService.isLogged = true;
+      this.error = false;
       this.loginRedirect();
-    }).catch(err => console.log('error: ', err));
+    }).catch(err => {
+      console.log('error: ', err);
+      this.error = true;
+    });
   }
 
-  loginRedirect(){
+  loginRedirect() {
     this.router.navigate(['main']);
   }
 

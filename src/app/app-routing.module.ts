@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'main', component: MainComponent, children: [
-      { path: 'bodega', component: BodegaComponent },
-      { path: 'producto', component: ProductoComponent },
+      { path: '', component: BodegaComponent },
+      { path: 'producto/:id', component: ProductoComponent },
       { path: 'carrito', component: CarritoComponent },
     ]
   },

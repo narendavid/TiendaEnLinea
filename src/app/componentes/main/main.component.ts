@@ -9,11 +9,9 @@ import { UsuariosService } from '../../servicios/usuarios.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private router: Router, private usuario: UsuariosService) {
-    this.router.navigate(['main/bodega']);
-    if (this.usuario.isLogged){
-      this.router.navigate(['']) 
-    }else{
+  constructor(private router: Router, private usuarioService: UsuariosService) {
+    if (!this.usuarioService.isLogged) {
+      this.router.navigate([''])
       console.log('debe iniciar sesion');
     }
   }
@@ -21,8 +19,9 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout(){
-    this.usuario.logout();
+  logout() {
+    this.usuarioService.logout();
+    this.usuarioService.isLogged = false;
     this.router.navigate(['']);
   }
 
