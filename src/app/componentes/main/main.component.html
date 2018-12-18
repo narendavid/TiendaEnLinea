@@ -1,0 +1,20 @@
+<div class="container-main">
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" [routerLink]="['bodega']">La bodega</a>
+            <a class="navbar-brand" [routerLink]="['producto']">Producto</a>
+            <a class="navbar-brand" [routerLink]="['carrito']">Carrito</a>
+            <button (click)="logout()">Logout</button>
+        </nav>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <h3>Catálogo de productos</h3>
+            </div>
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </section>
+</div>

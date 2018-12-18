@@ -1,0 +1,10 @@
+.container-main {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../../assets/fondos/main-fondo.jpg");
+    background-size: cover;
+}
+
+.container {
+    background-color: white;
+}

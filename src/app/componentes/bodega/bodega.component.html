@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-3" *ngFor="let producto of productos | async">
+        <div class="card">
+            <img class="card-img-top" [src]="producto.img" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ producto.nombre }}</h5>
+                <p class="card-text"><strong>Precio:</strong> {{ producto.precio | currency}} </p>
+                <p class="card-text"><strong>Unidades disponibles:</strong> {{ producto.unidades }} </p>
+                <a href="#" class="btn btn-primary">Ver más</a>
+                <a href="#" class="btn btn-primary">Añadir</a>
+                <input type="number" min="0" [max]="producto.unidades">
+            </div>
+        </div>
+    </div>
+</div>
